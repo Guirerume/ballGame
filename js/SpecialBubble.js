@@ -1,44 +1,45 @@
-class SpecialBubble {
-    get create() {
-        const randomInt = Math.floor(Math.random() * Math.floor(40));
-        let bubble = {};
+import { Engine } from './Engine.js';
+import { SoundManager } from './SoundManager.js';
 
-        if (randomInt < 10) {
-            bubble = {
-                name: "hearth",
-                start: {
-                    x: Math.floor(Math.random() * canvas.width),
-                    y: canvas.height + 1,
-                    image: "assets/bolha_06.gif",
-                    width: 32
-                },
-                end: {
-                    x: 300,
-                    y: canvas.height + 1,
-                    image: "assets/bolha_07.gif",
-                    width: 32
-                }
-                
-            };
-        } else {
-            bubble = {
-                name: "points",
-                start: {
-                    x: Math.floor(Math.random() * canvas.width),
-                    y: canvas.height + 1,
-                    image: "assets/bolha_12.gif",
-                    width: 32
-                },
-                end: {
-                    x: 300,
-                    y: canvas.height + 1,
-                    image: "assets/bolha_13.gif",
-                    width: 32
-                }
-            };
-        }
-        
+export let SpecialBubble = {
+    create: create,
+};
 
-        return bubble;
+function create(speed) {
+    const randomInt = Math.floor(Math.random() * Math.floor(40));
+    let gameObject;
+    if (randomInt < 10) {
+        gameObject = Engine.game.canvas.display.image({
+            x: Math.floor(Math.random() * Engine.game.canvas.width),
+            y: Engine.game.canvas.height + 1,
+            image: "assets/bolha_06.gif",
+            width: 58
+        });
+        gameObject.name = 'heart';
+        gameObject.points = 1;
+        gameObject.sound = 'sound/heart.wav'
+    } else {
+        gameObject = Engine.game.canvas.display.image({
+            x: Math.floor(Math.random() * Engine.game.canvas.width),
+            y: Engine.game.canvas.height + 1,
+            image: "assets/bolha_12.gif",
+            width: 58
+        });
+        gameObject.name = 'points';
+        gameObject.points = 10;
+        gameObject.sound = 'sound/points.wav'
     }
+    Engine.game.gameObjects.push(gameObject);
+    gameObject.speed = speed + 5;
+    gameObject.bind("click tap", function() {
+        Engine.game.userScore += gameObject.points;    
+        Engine.game.points.text = Engine.game.userScore;
+        let gameObjectIndex = Engine.game.gameObjects.indexOf(gameObject);
+        Engine.game.canvas.removeChild(gameObject);
+        Engine.game.gameObjects.splice(gameObjectIndex, 1);
+        SoundManager.play(gameObject.sound);
+    });
+    Engine.game.canvas.addChild(gameObject);
+    const date = new Date();
+    Engine.game.lastSpawn = date.getTime();
 }
