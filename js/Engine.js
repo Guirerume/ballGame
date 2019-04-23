@@ -9,7 +9,7 @@ export let Engine = {
             canvas: '#canvas',
             background: '#0cc',
             fps: 30
-          }),
+        }),
         score: {
             x: 10,
             y: 10,
@@ -25,7 +25,7 @@ export let Engine = {
             x: 75,
             y: 10,
             font: "18px bold",
-            text:  '',
+            text: '',
             fill: "white"
         },
         gameObjects: []
@@ -38,7 +38,7 @@ export let Engine = {
 
 function initialize(config) {
     Engine.game.spawnTime = config.spawnTime;
-    Engine.game.lastSpawn = 0;  
+    Engine.game.lastSpawn = 0;
     Engine.game.gameObjectSpeed = config.gameObjectSpeed;
     ScenesManager.createScenes();
     ScenesManager.changeScenes('menu');
@@ -55,17 +55,17 @@ function start() {
 
     Engine.game.canvas.setLoop(() => {
         if (Engine.canSpawn()) {
-            GameObjectFactory.generate(Engine.game.gameObjectSpeed, Engine.game.gameObjectIndex);            
+            GameObjectFactory.generate(Engine.game.gameObjectSpeed, Engine.game.gameObjectIndex);
         }
-    
+
         Engine.game.gameObjects.forEach((gameObject, index) => {
             if (gameObject.y > -30) {
                 gameObject.y = gameObject.y - gameObject.speed;
             } else {
                 gameObject.y = canvas.height + 1;
             }
-        
-            if (gameObject.y < -30 && gameObject.id && gameObject.name != "normal") {	
+
+            if (gameObject.y < -30 && gameObject.id && gameObject.name != "normal") {
                 Engine.game.canvas.removeChild(gameObject);
                 delete Engine.game.gameObjects[index];
             }
@@ -74,9 +74,9 @@ function start() {
 }
 
 function canSpawn() {
-	const date = new Date();
-	if ((date.getTime() - Engine.game.lastSpawn) > Engine.game.spawnTime) {
-		return true;
-	}
-	return false;
+    const date = new Date();
+    if ((date.getTime() - Engine.game.lastSpawn) > Engine.game.spawnTime) {
+        return true;
+    }
+    return false;
 }
