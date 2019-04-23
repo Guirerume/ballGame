@@ -62,7 +62,7 @@ function createScenes() {
     //How to Play
     let back = Engine.game.canvas.display.text({
         x: 150,
-        y: 400,
+        y: 450,
         font: "18px bold",
         text: "back",
         fill: "white"
@@ -71,20 +71,20 @@ function createScenes() {
         //Bubble
         this.add(Engine.game.canvas.display.image({
             x: 150,
-            y: 100,
+            y: 50,
             image: "assets/ball_game_sprites_01.png",
             width: 58
         }));
         this.add(Engine.game.canvas.display.text({
             x: 220,
-            y: 100,
+            y: 50,
             font: "18px bold",
             text: "Bubble",
             fill: "white"
         }));
         this.add(Engine.game.canvas.display.text({
             x: 220,
-            y: 120,
+            y: 70,
             font: "18px bold",
             text: "Normal bubble that give you 1 point.",
             fill: "white"
@@ -93,20 +93,20 @@ function createScenes() {
         //Heart
         this.add(Engine.game.canvas.display.image({
             x: 150,
-            y: 168,
+            y: 118,
             image: "assets/ball_game_sprites_10.png",
             width: 58
         }));
         this.add(Engine.game.canvas.display.text({
             x: 220,
-            y: 168,
+            y: 118,
             font: "18px bold",
             text: "Bubble: Heart",
             fill: "white"
         }));
         this.add(Engine.game.canvas.display.text({
             x: 220,
-            y: 188,
+            y: 138,
             font: "18px bold",
             text: "Give you a extra life!",
             fill: "white"
@@ -115,20 +115,20 @@ function createScenes() {
         //Points
         this.add(Engine.game.canvas.display.image({
             x: 150,
-            y: 238,
+            y: 188,
             image: "assets/ball_game_sprites_20.png",
             width: 58
         }));
         this.add(Engine.game.canvas.display.text({
             x: 220,
-            y: 248,
+            y: 198,
             font: "18px bold",
             text: "Bubble: 10 Points",
             fill: "white"
         }));
         this.add(Engine.game.canvas.display.text({
             x: 220,
-            y: 268,
+            y: 218,
             font: "18px bold",
             text: "Give you more 10 points!",
             fill: "white"
@@ -137,22 +137,44 @@ function createScenes() {
         //Bomb
         this.add(Engine.game.canvas.display.image({
             x: 150,
-            y: 308,
+            y: 258,
             image: "assets/ball_game_sprites_06.png",
             width: 58
         }));
         this.add(Engine.game.canvas.display.text({
             x: 220,
-            y: 318,
+            y: 268,
             font: "18px bold",
             text: "Bomb",
             fill: "white"
         }));
         this.add(Engine.game.canvas.display.text({
             x: 220,
-            y: 338,
+            y: 288,
             font: "18px bold",
             text: "Explode all elements giving points,\nlife and damage if a bad Item is there!",
+            fill: "white"
+        }));
+
+        //Spark
+        this.add(Engine.game.canvas.display.image({
+            x: 150,
+            y: 358,
+            image: "assets/ball_game_sprites_33.png",
+            width: 58
+        }));
+        this.add(Engine.game.canvas.display.text({
+            x: 220,
+            y: 368,
+            font: "18px bold",
+            text: "Bubble: Spark",
+            fill: "white"
+        }));
+        this.add(Engine.game.canvas.display.text({
+            x: 220,
+            y: 388,
+            font: "18px bold",
+            text: "A bad guy, this one take a half of your life.",
             fill: "white"
         }));
     
