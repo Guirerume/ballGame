@@ -1,6 +1,6 @@
 'use strict';
 import { GameObjectFactory } from './GameObjectFactory.js';
-import { SoundManager } from './SoundManager.js';
+import { ScenesManager } from './ScenesManager.js';
 
 export let Engine = {
     game: {
@@ -32,7 +32,6 @@ export let Engine = {
     initialize: initialize,
     start: start,
     canSpawn: canSpawn,
-    wait: wait
 
 };
 
@@ -40,24 +39,10 @@ function initialize(config) {
     Engine.game.spawnTime = config.spawnTime;
     Engine.game.lastSpawn = 0;  
     Engine.game.gameObjectSpeed = config.gameObjectSpeed;
-    Engine.wait();
+    ScenesManager.createScenes();
+    ScenesManager.changeScenes('menu');
 }
 
-function wait() {
-    let clickHere = Engine.game.canvas.display.text({
-        x: 230,
-        y: 200,
-        font: "18px bold",
-        text: "Click here to start",
-        fill: "white"
-    });
-    Engine.game.canvas.addChild(clickHere);
-    clickHere.bind("click tap",() => {
-        Engine.game.canvas.removeChild(clickHere);
-        SoundManager.playLevelBackground();
-        Engine.start();
-    });
-}
 
 function start() {
     const score = Engine.game.canvas.display.text(Engine.game.score);
