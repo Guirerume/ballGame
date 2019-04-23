@@ -72,7 +72,7 @@ function createScenes() {
         this.add(Engine.game.canvas.display.image({
             x: 150,
             y: 100,
-            image: "assets/bolha_01.gif",
+            image: "assets/ball_game_sprites_01.png",
             width: 58
         }));
         this.add(Engine.game.canvas.display.text({
@@ -94,7 +94,7 @@ function createScenes() {
         this.add(Engine.game.canvas.display.image({
             x: 150,
             y: 168,
-            image: "assets/bolha_06.gif",
+            image: "assets/ball_game_sprites_10.png",
             width: 58
         }));
         this.add(Engine.game.canvas.display.text({
@@ -116,7 +116,7 @@ function createScenes() {
         this.add(Engine.game.canvas.display.image({
             x: 150,
             y: 238,
-            image: "assets/bolha_12.gif",
+            image: "assets/ball_game_sprites_20.png",
             width: 58
         }));
         this.add(Engine.game.canvas.display.text({
@@ -138,7 +138,7 @@ function createScenes() {
         this.add(Engine.game.canvas.display.image({
             x: 150,
             y: 308,
-            image: "assets/bolha_03.gif",
+            image: "assets/ball_game_sprites_06.png",
             width: 58
         }));
         this.add(Engine.game.canvas.display.text({
