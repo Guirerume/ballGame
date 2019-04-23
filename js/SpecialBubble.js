@@ -1,5 +1,6 @@
 import { Engine } from './Engine.js';
 import { SoundManager } from './SoundManager.js';
+import { LifeController } from './LifeController.js';
 
 export let SpecialBubble = {
     create: create,
@@ -32,7 +33,10 @@ function create(speed) {
     Engine.game.gameObjects.push(gameObject);
     gameObject.speed = speed + 5;
     gameObject.bind("click tap", function() {
-        Engine.game.userScore += gameObject.points;    
+        Engine.game.userScore += gameObject.points;
+        if (gameObject.name === 'heart') {
+            LifeController.restore(2);
+        } 
         Engine.game.points.text = Engine.game.userScore;
         let gameObjectIndex = Engine.game.gameObjects.indexOf(gameObject);
         Engine.game.canvas.removeChild(gameObject);

@@ -1,13 +1,14 @@
 'use strict';
 import { GameObjectFactory } from './GameObjectFactory.js';
 import { ScenesManager } from './ScenesManager.js';
+import { LifeController } from './LifeController.js';
 
 export let Engine = {
     game: {
         canvas: oCanvas.create({
             canvas: '#canvas',
             background: '#0cc',
-            fps: 60
+            fps: 30
           }),
         score: {
             x: 10,
@@ -50,6 +51,7 @@ function start() {
     Engine.game.points = Engine.game.canvas.display.text(Engine.game.points);
     Engine.game.canvas.addChild(score);
     Engine.game.canvas.addChild(Engine.game.points);
+    LifeController.create(6);
 
     Engine.game.canvas.setLoop(() => {
         if (Engine.canSpawn()) {
@@ -73,7 +75,7 @@ function start() {
 
 function canSpawn() {
 	const date = new Date();
-	if (Engine.game.gameObjects.length < 15 && (date.getTime() - Engine.game.lastSpawn) > Engine.game.spawnTime) {
+	if ((date.getTime() - Engine.game.lastSpawn) > Engine.game.spawnTime) {
 		return true;
 	}
 	return false;

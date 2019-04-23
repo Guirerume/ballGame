@@ -1,5 +1,6 @@
 import { Engine } from './Engine.js';
 import { SoundManager } from './SoundManager.js';
+import { LifeController } from './LifeController.js';
 
 export let Bomb = {
     create: create,
@@ -24,6 +25,15 @@ function create(speed) {
         Engine.game.gameObjects.forEach((gameObject, index) => {
             Engine.game.userScore += gameObject.points;    
             Engine.game.points.text = Engine.game.userScore;
+
+            if (gameObject.name === 'heart') {
+                LifeController.restore(2);
+            } else if (gameObject.name === 'spark') {
+                LifeController.damage(1);
+            } else if (gameObject.name === 'virus') {
+                LifeController.damage(2);
+            }
+
             Engine.game.canvas.removeChild(gameObject);
             delete Engine.game.gameObjects[index];
         });

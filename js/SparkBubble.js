@@ -1,5 +1,6 @@
 import { Engine } from './Engine.js';
 import { SoundManager } from './SoundManager.js';
+import { LifeController } from './LifeController.js';
 
 export let SparkBubble = {
     create: create,
@@ -12,11 +13,12 @@ function create(speed) {
             image: "assets/ball_game_sprites_33.png",
             width: 58
         });
-    gameObject.name = 'park';
+    gameObject.name = 'spark';
     gameObject.speed = speed + 1;
     gameObject.points = 0;
     Engine.game.gameObjects.push(gameObject);
     gameObject.bind("click tap", function() {
+        LifeController.damage(1);
         let gameObjectIndex = Engine.game.gameObjects.indexOf(gameObject);
         Engine.game.canvas.removeChild(gameObject);
         Engine.game.gameObjects.splice(gameObjectIndex, 1);
