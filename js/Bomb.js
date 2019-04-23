@@ -7,7 +7,7 @@ export let Bomb = {
 
 function create(speed) {
     let gameObject = Engine.game.canvas.display.image({
-            x: Math.floor(Math.random() * Engine.game.canvas.width),
+            x: Math.floor(Math.random() * (Engine.game.canvas.width - 58)),
             y: Engine.game.canvas.height + 1,
             image: "assets/bolha_03.gif",
             width: 58

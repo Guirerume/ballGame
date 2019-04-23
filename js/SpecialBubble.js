@@ -10,7 +10,7 @@ function create(speed) {
     let gameObject;
     if (randomInt < 10) {
         gameObject = Engine.game.canvas.display.image({
-            x: Math.floor(Math.random() * Engine.game.canvas.width),
+            x: Math.floor(Math.random() * (Engine.game.canvas.width - 58)),
             y: Engine.game.canvas.height + 1,
             image: "assets/bolha_06.gif",
             width: 58
@@ -20,7 +20,7 @@ function create(speed) {
         gameObject.sound = 'sound/heart.wav'
     } else {
         gameObject = Engine.game.canvas.display.image({
-            x: Math.floor(Math.random() * Engine.game.canvas.width),
+            x: Math.floor(Math.random() * (Engine.game.canvas.width - 58)),
             y: Engine.game.canvas.height + 1,
             image: "assets/bolha_12.gif",
             width: 58
