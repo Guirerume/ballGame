@@ -62,8 +62,8 @@ function setPositionValues() {
   Engine.game.widthTwoPercent = Engine.game.canvas.width * 0.02;
   Engine.game.widthOnePercent = Engine.game.canvas.width * 0.01;
   Engine.game.fontSmallSize = Engine.game.canvas.width * 0.015;
-  Engine.game.slowSpeed = Engine.game.canvas.width * 0.001;
-  Engine.game.fastSpeed = Engine.game.canvas.width * 0.003;
+  Engine.game.slowSpeed = Engine.game.canvas.height * 0.005;
+  Engine.game.fastSpeed = Engine.game.canvas.height * 0.007;
   Engine.game.heightNinetyPercent = Engine.game.canvas.height * 0.9;
   Engine.game.heightFiftyFourPercent = Engine.game.canvas.height * 0.54;
   Engine.game.heightFiftyPercent = Engine.game.canvas.height * 0.50;

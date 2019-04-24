@@ -2,7 +2,7 @@
 import { Engine } from './Engine.js';
 
 let config = {
-  spawnTime: 2000,
+  spawnTime: 1000,
   gameObjectSpeed: Engine.game.fastSpeed,
   tileSize: 60
 };
