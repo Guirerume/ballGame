@@ -13,30 +13,30 @@ export let ScenesManager = {
 function createScenes() {
   //Menu
   let start = Engine.game.canvas.display.text({
-    x: 230,
-    y: 200,
-    font: "18px bold",
+    x: Engine.game.widththirtyPercent,
+    y: Engine.game.heightFiveteenPercent,
+    font: Engine.game.widthFivePercent + "px bold",
     text: "Start Game",
     fill: "white"
   });
   let intro = Engine.game.canvas.display.text({
-    x: 230,
-    y: 230,
-    font: "18px bold",
+    x: Engine.game.widththirtyPercent,
+    y: Engine.game.heightTweetyFivePercent,
+    font: Engine.game.widthFivePercent + "px bold",
     text: "How to Play?",
     fill: "white"
   });
   let ranking = Engine.game.canvas.display.text({
-    x: 230,
-    y: 260,
-    font: "18px bold",
+    x: Engine.game.widththirtyPercent,
+    y: Engine.game.heightThrityFivePercent,
+    font: Engine.game.widthFivePercent + "px bold",
     text: "Rank",
     fill: "white"
   });
   let survivor = Engine.game.canvas.display.text({
-    x: 230,
-    y: 290,
-    font: "18px bold",
+    x: Engine.game.widththirtyPercent,
+    y: Engine.game.canvas.height * 0.45,
+    font: Engine.game.widthFivePercent + "px bold",
     text: "Survivor Mode",
     fill: "white"
   });
@@ -61,119 +61,119 @@ function createScenes() {
 
   //How to Play
   let back = Engine.game.canvas.display.text({
-    x: 150,
-    y: 450,
-    font: "18px bold",
-    text: "back",
+    x: Engine.game.widthTwoPercent,
+    y: Engine.game.heightNinetyPercent,
+    font: Engine.game.widthTwoPercent + "px bold",
+    text: "< back",
     fill: "white"
-  })
+  });
   Engine.game.canvas.scenes.create('intro', function () {
     //Bubble
     this.add(Engine.game.canvas.display.image({
-      x: 150,
-      y: 50,
+      x: Engine.game.widththirtyPercent,
+      y: Engine.game.heightFivePercent,
       image: "assets/ball_game_sprites_01.png",
-      width: 58
+      width: Engine.game.widthFivePercent
     }));
     this.add(Engine.game.canvas.display.text({
-      x: 220,
-      y: 50,
-      font: "18px bold",
+      x: Engine.game.widthThirtySixPercent,
+      y: Engine.game.heightFivePercent,
+      font: Engine.game.widthTwoPercent + "px bold",
       text: "Bubble",
       fill: "white"
     }));
     this.add(Engine.game.canvas.display.text({
-      x: 220,
-      y: 70,
-      font: "18px bold",
+      x: Engine.game.widthThirtySixPercent,
+      y: Engine.game.heightNinePercent,
+      font: Engine.game.fontSmallSize + "px bold",
       text: "Normal bubble that give you 1 point.",
       fill: "white"
     }));
 
     //Heart
     this.add(Engine.game.canvas.display.image({
-      x: 150,
-      y: 118,
+      x: Engine.game.widththirtyPercent,
+      y: Engine.game.heightFiveteenPercent,
       image: "assets/ball_game_sprites_10.png",
-      width: 58
+      width: Engine.game.widthFivePercent
     }));
     this.add(Engine.game.canvas.display.text({
-      x: 220,
-      y: 118,
-      font: "18px bold",
+      x: Engine.game.widthThirtySixPercent,
+      y: Engine.game.heightFiveteenPercent,
+      font: Engine.game.widthTwoPercent + "px bold",
       text: "Bubble: Heart",
       fill: "white"
     }));
     this.add(Engine.game.canvas.display.text({
-      x: 220,
-      y: 138,
-      font: "18px bold",
+      x: Engine.game.widthThirtySixPercent,
+      y: Engine.game.heightNineteenPercent,
+      font: Engine.game.fontSmallSize + "px bold",
       text: "Give you a extra life!",
       fill: "white"
     }));
 
     //Points
     this.add(Engine.game.canvas.display.image({
-      x: 150,
-      y: 188,
+      x: Engine.game.widththirtyPercent,
+      y: Engine.game.heightTweetyFivePercent,
       image: "assets/ball_game_sprites_20.png",
-      width: 58
+      width: Engine.game.widthFivePercent
     }));
     this.add(Engine.game.canvas.display.text({
-      x: 220,
-      y: 198,
-      font: "18px bold",
+      x: Engine.game.widthThirtySixPercent,
+      y: Engine.game.heightTweetyFivePercent,
+      font: Engine.game.widthTwoPercent + "px bold",
       text: "Bubble: 10 Points",
       fill: "white"
     }));
     this.add(Engine.game.canvas.display.text({
-      x: 220,
-      y: 218,
-      font: "18px bold",
+      x: Engine.game.widthThirtySixPercent,
+      y: Engine.game.heightTweetyninePercent,
+      font: Engine.game.fontSmallSize + "px bold",
       text: "Give you more 10 points!",
       fill: "white"
     }));
 
     //Bomb
     this.add(Engine.game.canvas.display.image({
-      x: 150,
-      y: 258,
+      x: Engine.game.widththirtyPercent,
+      y: Engine.game.heightThrityFivePercent,
       image: "assets/ball_game_sprites_06.png",
-      width: 58
+      width: Engine.game.widthFivePercent
     }));
     this.add(Engine.game.canvas.display.text({
-      x: 220,
-      y: 268,
-      font: "18px bold",
+      x: Engine.game.widthThirtySixPercent,
+      y: Engine.game.heightThrityFivePercent,
+      font: Engine.game.widthTwoPercent + "px bold",
       text: "Bomb",
       fill: "white"
     }));
     this.add(Engine.game.canvas.display.text({
-      x: 220,
-      y: 288,
-      font: "18px bold",
+      x: Engine.game.widthThirtySixPercent,
+      y: Engine.game.heightThrityNinePercent,
+      font: Engine.game.fontSmallSize + "px bold",
       text: "Explode all elements giving points,\nlife and damage if a bad Item is there!",
       fill: "white"
     }));
 
     //Spark
     this.add(Engine.game.canvas.display.image({
-      x: 150,
-      y: 358,
+      x: Engine.game.widththirtyPercent,
+      y: Engine.game.heightFiftyPercent,
       image: "assets/ball_game_sprites_33.png",
-      width: 58
+      width: Engine.game.widthFivePercent
     }));
     this.add(Engine.game.canvas.display.text({
-      x: 220,
-      y: 368,
-      font: "18px bold",
+      x: Engine.game.widthThirtySixPercent,
+      y: Engine.game.heightFiftyPercent,
+      font: Engine.game.widthTwoPercent + "px bold",
       text: "Bubble: Spark",
       fill: "white"
     }));
     this.add(Engine.game.canvas.display.text({
-      x: 220,
-      y: 388,
-      font: "18px bold",
+      x: Engine.game.widthThirtySixPercent,
+      y: Engine.game.heightFiftyFourPercent,
+      font: Engine.game.fontSmallSize + "px bold",
       text: "A bad guy, this one take a half of your life.",
       fill: "white"
     }));

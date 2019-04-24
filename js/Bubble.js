@@ -7,13 +7,13 @@ export let Bubble = {
 
 function create(speed) {
   let gameObject = Engine.game.canvas.display.image({
-    x: Math.floor(Math.random() * (Engine.game.canvas.width - 58)),
+    x: Math.floor(Math.random() * (Engine.game.canvas.width - Engine.game.widthFivePercent)),
     y: Engine.game.canvas.height + 1,
     image: "assets/ball_game_sprites_01.png",
-    width: 58
+    width: Engine.game.widthFivePercent
   });
   gameObject.name = "normal";
-  gameObject.speed = speed;
+  gameObject.speed = speed + Engine.game.slowSpeed;
   gameObject.points = 1;
   Engine.game.gameObjects.push(gameObject);
   gameObject.bind("click tap", function () {

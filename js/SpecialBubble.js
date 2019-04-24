@@ -11,27 +11,27 @@ function create(speed) {
   let gameObject;
   if (randomInt < 10) {
     gameObject = Engine.game.canvas.display.image({
-      x: Math.floor(Math.random() * (Engine.game.canvas.width - 58)),
+      x: Math.floor(Math.random() * (Engine.game.canvas.width - Engine.game.widthFivePercent)),
       y: Engine.game.canvas.height + 1,
       image: "assets/ball_game_sprites_10.png",
-      width: 58
+      width: Engine.game.widthFivePercent
     });
     gameObject.name = 'heart';
     gameObject.points = 1;
     gameObject.sound = 'sound/heart.wav'
   } else {
     gameObject = Engine.game.canvas.display.image({
-      x: Math.floor(Math.random() * (Engine.game.canvas.width - 58)),
+      x: Math.floor(Math.random() * Engine.game.widthFivePercent),
       y: Engine.game.canvas.height + 1,
       image: "assets/ball_game_sprites_20.png",
-      width: 58
+      width: Engine.game.widthFivePercent
     });
     gameObject.name = 'points';
     gameObject.points = 10;
     gameObject.sound = 'sound/points.wav'
   }
   Engine.game.gameObjects.push(gameObject);
-  gameObject.speed = speed + 5;
+  gameObject.speed = speed + Engine.game.fastSpeed;
   gameObject.bind("click tap", function () {
     Engine.game.userScore += gameObject.points;
     if (gameObject.name === 'heart') {

@@ -13,7 +13,7 @@ function create(points) {
   LifeController.lifePoints = points;
   let hearts = Math.floor(points / 2);
   let halfHearts = Math.floor(points % 2);
-  let lastPosition = Engine.game.canvas.width - 58;
+  let lastPosition = Engine.game.canvas.width - (Engine.game.canvas.width * 0.045);
   let countHearts = 0;
   let countHalfHearts = 0;
 
@@ -21,28 +21,28 @@ function create(points) {
     countHearts++;
     let heart = Engine.game.canvas.display.image({
       x: lastPosition,
-      y: 10,
+      y: Engine.game.canvas.height * 0.02,
       image: "assets/ball_game_sprites_14.png",
-      width: 48
+      width: Engine.game.canvas.width * 0.04
     });
     heart.name = "fullLife";
     LifeController.hearts.push(heart);
     Engine.game.canvas.addChild(heart);
-    lastPosition -= 58;
+    lastPosition -= Engine.game.canvas.width * 0.045;
   }
 
   while (countHalfHearts < halfHearts) {
     countHalfHearts++;
     let half = Engine.game.canvas.display.image({
       x: lastPosition,
-      y: 10,
+      y: Engine.game.canvas.height * 0.02,
       image: "assets/ball_game_sprites_16.png",
-      width: 48
+      width: Engine.game.canvas.width * 0.04
     });
     half.name = "halfLife";
     LifeController.hearts.push(half);
     Engine.game.canvas.addChild(half);
-    lastPosition -= 58;
+    lastPosition -= Engine.game.canvas.width * 0.045;
   }
 }
 

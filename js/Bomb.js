@@ -8,13 +8,13 @@ export let Bomb = {
 
 function create(speed) {
   let gameObject = Engine.game.canvas.display.image({
-    x: Math.floor(Math.random() * (Engine.game.canvas.width - 58)),
-    y: Engine.game.canvas.height + 1,
+    x: Math.floor(Math.random() * (Engine.game.canvas.width - Engine.game.widthFivePercent)),
+    y: Engine.game.canvas.height,
     image: "assets/ball_game_sprites_06.png",
-    width: 58
+    width: Engine.game.widthFivePercent
   });
   gameObject.name = 'bomb';
-  gameObject.speed = speed + 1;
+  gameObject.speed = speed + Engine.game.slowSpeed;
   gameObject.points = 0;
   Engine.game.gameObjects.push(gameObject);
   gameObject.bind("click tap", function () {
